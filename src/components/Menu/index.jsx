@@ -53,8 +53,13 @@ export function Menu(props) {
             <UserPlus />
           </Div>
           <Div display="block">
-            <DefaultText>Nome</DefaultText>
-            <DefaultText color="#9699B0" lineHeight="19px" fontSize="14px">
+            <DefaultText textAlign="right">Nome</DefaultText>
+            <DefaultText
+              textAlign="right"
+              color="#9699B0"
+              lineHeight="19px"
+              fontSize="14px"
+            >
               email@email.com
             </DefaultText>
           </Div>

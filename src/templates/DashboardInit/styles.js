@@ -11,6 +11,7 @@ export const ItemsDiv = styled.div`
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : 'center'};
   margin: ${(props) => (props.margin ? props.margin : '0 auto')};
+  padding: ${(props) => (props.padding ? props.padding : '0 160px')};
 `;
 
 export const Div = styled.div`

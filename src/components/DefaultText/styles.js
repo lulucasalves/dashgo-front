@@ -11,4 +11,8 @@ export const Base = styled.p`
     props.letterSpacing ? props.letterSpacing : ''};
   display: ${(props) => (props.display ? props.display : '')};
   cursor: ${(props) => (props.cursor ? props.cursor : '')};
+
+  span {
+    font-weight: 700;
+  }
 `;

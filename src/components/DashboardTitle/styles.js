@@ -10,4 +10,8 @@ export const Base = styled.label`
   letter-spacing: ${(props) =>
     props.letterSpacing ? props.letterSpacing : ''};
   cursor: ${(props) => (props.cursor ? props.cursor : 'default')};
+
+  span {
+    font-weight: 500;
+  }
 `;

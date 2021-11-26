@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Base = styled.div`
-  width: ${(props) => (props.width ? props.width : '100%')};
+  width: ${(props) => (props.width ? props.width : '400px')};
   height: ${(props) => (props.height ? props.height : '100%')};
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : 'center'};

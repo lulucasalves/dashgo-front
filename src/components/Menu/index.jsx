@@ -6,7 +6,7 @@ import { SearchInput } from '../../components/SearchInput';
 import { Bell, UserPlus, Search } from '../Icons';
 import { Logo } from '../Logo';
 import { DefaultText } from '../DefaultText';
-import Image from 'next';
+import { Avatar } from '@mui/material';
 
 export function Menu(props) {
   const router = useRouter();
@@ -52,17 +52,18 @@ export function Menu(props) {
             <Bell margin="0 38px 0 0" />
             <UserPlus />
           </Div>
-          <Div display="block">
-            <DefaultText textAlign="right">Nome</DefaultText>
+          <Div display="block" margin="0 16px 0 0">
+            <DefaultText textAlign="right">Lucas Alves</DefaultText>
             <DefaultText
               textAlign="right"
               color="#9699B0"
               lineHeight="19px"
               fontSize="14px"
             >
-              email@email.com
+              lucas.alves.supus@outlook.com
             </DefaultText>
           </Div>
+          <Avatar   sx={{ width: 48, height: 48 }} src="/avatar.png" />
         </Div>
       </ItemsDiv>
     </Base>

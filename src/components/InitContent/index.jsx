@@ -1,33 +1,55 @@
 import { Base, ItemsDiv, Div } from './styles';
-import { useRouter } from 'next/router';
-import { routesDocument } from '../../routes';
-import { Dash, Form, User, Map } from '../Icons';
-import { MenuText } from '../MenuText';
+import { DashboardTitle } from '../DashboardTitle';
+import { DefaultText } from '../DefaultText';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 export function InitContent(props) {
-  const router = useRouter();
-
   return (
     <Base>
       <ItemsDiv>
-        <MenuText margin="0 0 34px 0">GERAL</MenuText>
-        <Div margin="0 0 20px 0">
-          <Dash margin="0 18px 0 0" />
-          <MenuText>Dashboard</MenuText>
-        </Div>
-        <Div margin="0 0 50px 0">
-          <User margin="0 18px 0 0" />
-          <MenuText>Usuários</MenuText>
+        <Div margin="0 0 30px 0">
+          <Image width="33px" height="33px" src="/hand.png" />
+
+          <DashboardTitle margin="0 0 0 16px">
+            Olá, <span>Nome</span>
+          </DashboardTitle>
         </Div>
 
-        <MenuText margin="0 0 34px 0">AUTOMAÇÃO</MenuText>
-        <Div margin="0 0 20px 0">
-          <Form margin="0 18px 0 0" />
-          <MenuText>Formulários</MenuText>
-        </Div>
         <Div>
-          <Map margin="0 18px 0 0" />
-          <MenuText>Automação</MenuText>
+          <Div
+            display="block"
+            background="#1F2029"
+            borderRadius="8px"
+            padding="32px"
+            width="424px"
+            height="250px"
+            margin="0 16px 0 0"
+          >
+            <DefaultText
+              margin="0 0 16px 0"
+              fontSize="18px"
+              lineHeight="21,09px"
+            >
+              Inscritos da semana
+            </DefaultText>
+          </Div>
+          <Div
+            width="424px"
+            height="250px"
+            display="block"
+            background="#1F2029"
+            borderRadius="8px"
+            padding="32px"
+          >
+            <DefaultText
+              margin="0 0 16px 0"
+              fontSize="18px"
+              lineHeight="21,09px"
+            >
+              Taxa de abertura
+            </DefaultText>
+          </Div>
         </Div>
       </ItemsDiv>
     </Base>

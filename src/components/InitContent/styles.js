@@ -26,4 +26,8 @@ export const Div = styled.div`
   padding: ${(props) => (props.padding ? props.padding : '0')};
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : ''};
+  background: ${(props) => (props.background ? props.background : '')};
+  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : '')};
+  height: ${(props) => (props.height ? props.height : '')};
+  width: ${(props) => (props.width ? props.width : '')};
 `;

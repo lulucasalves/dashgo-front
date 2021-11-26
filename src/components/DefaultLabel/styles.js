@@ -9,4 +9,5 @@ export const Base = styled.label`
   line-height: ${props => (props.lineHeight ? props.lineHeight : '18.75px')};
   letter-spacing: ${props => (props.letterSpacing ? props.letterSpacing : '')};
   cursor: ${props => (props.cursor ? props.cursor : 'default')};
+  display: block;
 `;

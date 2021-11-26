@@ -14,6 +14,8 @@ export const Base = styled.button`
   border-radius: ${(props) =>
     props.borderRadius ? props.borderRadius : '6px'};
   color: ${(props) => (props.color ? props.color : '#eeeef2')};
+  display: ${(props) => (props.display ? props.display : '')};
+
 
   &:hover {
     filter: brightness(0.9);

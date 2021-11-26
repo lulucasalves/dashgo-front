@@ -1,5 +1,17 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import '../styles/globals.css';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#fff',
+    },
+    secondary: {
+      main: '#D53F8C',
+    },
+  },
+});
 
 const GlobalStyle = createGlobalStyle`
   //Global Colors
@@ -19,12 +31,6 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `;
-
-const theme = {
-  colors: {
-    primary: '#000000',
-  },
-};
 
 function MyApp({ Component, pageProps }) {
   return (

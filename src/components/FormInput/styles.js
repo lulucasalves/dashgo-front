@@ -8,21 +8,21 @@ export const Base = styled.input`
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'left')};
   padding: ${(props) => (props.padding ? props.padding : '0 0 0 16px')};
   color: ${(props) => (props.color ? props.color : '#eeeef2')};
-  
+
   font-size: ${(props) => (props.fontSize ? props.fontSize : '18px')};
   margin: ${(props) => (props.margin ? props.margin : '0')};
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '400')};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
-  line-height: ${(props) => (props.lineHeight ? props.lineHeight : '21,09px')};
+  line-height: ${(props) => (props.lineHeight ? props.lineHeight : '21.09px')};
   background: ${(props) => (props.background ? props.background : '#181B23')};
 
   letter-spacing: ${(props) =>
     props.letterSpacing ? props.letterSpacing : ''};
   border: ${(props) =>
-    props.value
-      ? '3px solid #D53F8C'
-      : props.errors
+    props.errors
       ? '3px solid #C53030'
+      : props.value
+      ? '3px solid #D53F8C'
       : ''};
 
   &:focus {

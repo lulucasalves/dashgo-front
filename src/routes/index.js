@@ -1,4 +1,6 @@
 export const routesDocument = {
   loginPage: '/',
-  DashboardInitial: '/dashboard',
+  dashboardInitial: '/dashboard',
+  dashboardUsers: '/dashboard/users',
+  dashboardForm: '/dashboard/register',
 };

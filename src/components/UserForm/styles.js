@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Base = styled.div`
-  width: ${(props) => (props.width ? props.width : '400px')};
+  width: ${(props) => (props.width ? props.width : '100%')};
   height: ${(props) => (props.height ? props.height : '100%')};
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : 'center'};
@@ -26,5 +26,9 @@ export const Div = styled.div`
   padding: ${(props) => (props.padding ? props.padding : '0')};
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : ''};
-  cursor: ${(props) => (props.cursor ? props.cursor : '')};
+  background: ${(props) => (props.background ? props.background : '')};
+  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : '')};
+  border-bottom: ${(props) => (props.border ? props.border : '')};
+
+  height: ${(props) => (props.height ? props.height : '')};
 `;

@@ -12,7 +12,7 @@ export function InitContent(props) {
           <Image width="33px" height="33px" src="/hand.png" />
 
           <DashboardTitle margin="0 0 0 16px">
-            Olá, <span>Nome</span>
+            Olá, <span>Lucas</span>
           </DashboardTitle>
         </Div>
 
@@ -29,7 +29,7 @@ export function InitContent(props) {
             <DefaultText
               margin="0 0 16px 0"
               fontSize="18px"
-              lineHeight="21,09px"
+              lineHeight="21.09px"
             >
               Inscritos da semana
             </DefaultText>
@@ -45,7 +45,7 @@ export function InitContent(props) {
             <DefaultText
               margin="0 0 16px 0"
               fontSize="18px"
-              lineHeight="21,09px"
+              lineHeight="21.09px"
             >
               Taxa de abertura
             </DefaultText>

@@ -13,7 +13,7 @@ export function Login(props) {
   const router = useRouter();
 
   const send = ({ email, password }) => {
-    router.push(routesDocument.DashboardInitial);
+    router.push(routesDocument.dashboardInitial);
   };
 
   const [type, setType] = useState(false);

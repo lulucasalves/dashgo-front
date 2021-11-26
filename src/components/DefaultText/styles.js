@@ -9,4 +9,6 @@ export const Base = styled.p`
   line-height: ${(props) => (props.lineHeight ? props.lineHeight : '24px')};
   letter-spacing: ${(props) =>
     props.letterSpacing ? props.letterSpacing : ''};
+  display: ${(props) => (props.display ? props.display : '')};
+  cursor: ${(props) => (props.cursor ? props.cursor : '')};
 `;

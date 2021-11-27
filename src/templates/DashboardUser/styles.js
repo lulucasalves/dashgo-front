@@ -16,6 +16,10 @@ export const ItemsDiv = styled.div`
   @media (max-width: 1360px) {
     padding: 0 40px;
   }
+
+  @media (max-width: 1080px) {
+    padding: 0 20px;
+  }
 `;
 
 export const Div = styled.div`

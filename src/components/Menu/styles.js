@@ -7,6 +7,11 @@ export const Base = styled.div`
     props.justifyContent ? props.justifyContent : 'center'};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   margin: ${(props) => (props.margin ? props.margin : '0 auto')};
+  display: block;
+
+  @media (max-width: 1080px) {
+    display: none;
+  }
 `;
 
 export const ItemsDiv = styled.div`

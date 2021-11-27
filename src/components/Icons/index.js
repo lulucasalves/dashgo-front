@@ -8,6 +8,7 @@ import { IconUser } from './IconUser';
 import { IconUserPlus } from './IconUserPlus';
 import { IconSearch } from './IconSearch';
 import { IconArrow } from './IconArrow';
+import { IconBars } from './IconBars';
 
 export const Bell = IconBell;
 export const Dash = IconDash;
@@ -19,3 +20,4 @@ export const User = IconUser;
 export const UserPlus = IconUserPlus;
 export const Search = IconSearch;
 export const Arrow = IconArrow;
+export const Bars = IconBars;

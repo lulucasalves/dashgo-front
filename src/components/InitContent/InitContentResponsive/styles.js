@@ -7,10 +7,11 @@ export const Base = styled.div`
     props.justifyContent ? props.justifyContent : 'center'};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   margin: ${(props) => (props.margin ? props.margin : '0 auto')};
-  display: block;
+
+  display: none;
 
   @media (max-width: 1080px) {
-    display: none;
+    display: block;
   }
 `;
 
@@ -25,7 +26,7 @@ export const ItemsDiv = styled.div`
 
 export const Div = styled.div`
   max-width: ${(props) => (props.width ? props.width : '100%')};
-  display: ${(props) => (props.display ? props.display : 'flex')};
+  display: ${(props) => (props.display ? props.display : 'block')};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   margin: ${(props) => (props.margin ? props.margin : '0')};
   padding: ${(props) => (props.padding ? props.padding : '0')};

@@ -13,6 +13,12 @@ export function UserContent(props) {
 
   const [user, setUser] = useState([
     {
+      id: 3,
+      name: 'User 3',
+      email: 'josenazare@gmail.com',
+      date: '19 de março de 2021',
+    },
+    {
       id: 1,
       name: 'User 1',
       email: 'josenazare@gmail.com',
@@ -24,31 +30,17 @@ export function UserContent(props) {
       email: 'josenazare@gmail.com',
       date: '19 de março de 2021',
     },
-    {
-      id: 3,
-      name: 'User 3',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
-      id: 4,
-      name: 'User 4',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
-      id: 5,
-      name: 'User 5',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
-      id: 6,
-      name: 'User 6',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
   ]);
+
+  const [click, setClick] = useState(false);
+
+  function orderByName(a, b) {
+    if (click) {
+      return b.name < a.name;
+    } else {
+      return b.name > a.name;
+    }
+  }
 
   const usersPerPage = 5;
 
@@ -76,7 +68,7 @@ export function UserContent(props) {
           }
           margin="0 0 0 8px"
           padding="9px 12px"
-          fontSize="12px"
+          fontSize="0.75rem"
           lineHeight="14.06px"
           background="#353646"
         >
@@ -96,7 +88,7 @@ export function UserContent(props) {
           }
           margin="0 0 0 8px"
           padding="9px 12px"
-          fontSize="12px"
+          fontSize="0.75rem"
           lineHeight="14.06px"
         >
           {pageUsers.page + 1}
@@ -143,19 +135,20 @@ export function UserContent(props) {
               </Td>
               <Td width="365px">
                 <DefaultText
-                  fontSize="13px"
+                  fontSize="0.813rem"
                   color="#4B4D63"
                   fontWeight="700"
                   lineHeight="14.06px"
                   display="flex"
                   cursor="pointer"
+                  onClick={() => setClick(!click)}
                 >
-                  USUÁRIO <Arrow margin="-2px 0 0 12px" />
+                  USUÁRIO <Arrow active={click} margin="-2px 0 0 12px" />
                 </DefaultText>
               </Td>
               <Td width="365px">
                 <DefaultText
-                  fontSize="13px"
+                  fontSize="0.813rem"
                   color="#4B4D63"
                   fontWeight="700"
                   lineHeight="14.06px"
@@ -168,7 +161,7 @@ export function UserContent(props) {
             </Tr>
           </thead>
           <tbody>
-            {pageUsers.users.map((val) => {
+            {pageUsers.users.sort(orderByName).map((val) => {
               return (
                 <Tr key={val.id} padding="13px 0" display="flex">
                   <Td width="70px" textAlign="center">
@@ -189,7 +182,7 @@ export function UserContent(props) {
                         {val.name}
                       </DefaultText>
                       <DefaultText
-                        fontSize="14px"
+                        fontSize="0.875rem"
                         color="#9699B0"
                         fontWeight="400"
                         lineHeight="20px"
@@ -215,7 +208,7 @@ export function UserContent(props) {
               <DefaultButton
                 margin="0 0 0 8px"
                 padding="9px 12px"
-                fontSize="12px"
+                fontSize="0.75rem"
                 lineHeight="14.06px"
               >
                 {pageUsers.page}

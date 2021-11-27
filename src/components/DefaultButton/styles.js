@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Base = styled.button`
-  font-size: ${(props) => (props.fontSize ? props.fontSize : '14px')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '0.875rem')};
   margin: ${(props) => (props.margin ? props.margin : '0')};
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '500')};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'center')};
@@ -15,7 +15,6 @@ export const Base = styled.button`
     props.borderRadius ? props.borderRadius : '6px'};
   color: ${(props) => (props.color ? props.color : '#eeeef2')};
   display: ${(props) => (props.display ? props.display : '')};
-
 
   &:hover {
     filter: brightness(0.9);

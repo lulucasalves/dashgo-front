@@ -9,12 +9,16 @@ export const Base = styled.input`
   padding: ${(props) => (props.padding ? props.padding : '0 0 0 16px')};
   color: ${(props) => (props.color ? props.color : '#eeeef2')};
 
-  font-size: ${(props) => (props.fontSize ? props.fontSize : '18px')};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : '1.125rem')};
   margin: ${(props) => (props.margin ? props.margin : '0')};
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : '400')};
   text-align: ${(props) => (props.textAlign ? props.textAlign : 'left')};
   line-height: ${(props) => (props.lineHeight ? props.lineHeight : '21.09px')};
   background: ${(props) => (props.background ? props.background : '#181B23')};
+
+  @media (max-width: 1230px) {
+    max-width: 310px;
+  }
 
   letter-spacing: ${(props) =>
     props.letterSpacing ? props.letterSpacing : ''};

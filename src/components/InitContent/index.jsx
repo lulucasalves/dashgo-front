@@ -28,7 +28,7 @@ export function InitContent(props) {
           >
             <DefaultText
               margin="0 0 16px 0"
-              fontSize="18px"
+              fontSize="1.125rem"
               lineHeight="21.09px"
             >
               Inscritos da semana
@@ -44,7 +44,7 @@ export function InitContent(props) {
           >
             <DefaultText
               margin="0 0 16px 0"
-              fontSize="18px"
+              fontSize="1.125rem"
               lineHeight="21.09px"
             >
               Taxa de abertura

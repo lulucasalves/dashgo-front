@@ -31,7 +31,7 @@ export function LateralMenu(props) {
           cursor="default"
           margin="0 0 34px 0"
           fontWeight="700"
-          fontSize="14px"
+          fontSize="0.875rem"
           lineHeight="16.41px"
           color="#797D9A"
         >
@@ -58,7 +58,7 @@ export function LateralMenu(props) {
           cursor="default"
           color="#797D9A"
           fontWeight="700"
-          fontSize="14px"
+          fontSize="0.875rem"
           lineHeight="16.41px"
           margin="0 0 34px 0"
           cursor="pointer"

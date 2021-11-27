@@ -27,4 +27,5 @@ export const Div = styled.div`
     props.justifyContent ? props.justifyContent : ''};
   border-right: ${(props) => (props.border ? props.border : '')};
   border-radius: ${(props) => (props.borderRadius ? props.borderRadius : '')};
+  cursor: ${(props) => (props.cursor ? props.cursor : '')};
 `;

@@ -12,6 +12,10 @@ export const ItemsDiv = styled.div`
     props.justifyContent ? props.justifyContent : 'center'};
   margin: ${(props) => (props.margin ? props.margin : '0 auto')};
   padding: ${(props) => (props.padding ? props.padding : '0 160px')};
+
+  @media (max-width: 1360px) {
+    padding: 0 40px;
+  }
 `;
 
 export const Div = styled.div`

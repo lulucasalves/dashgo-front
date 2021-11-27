@@ -50,20 +50,22 @@ export function Menu(props) {
             border="1px solid #353646"
           >
             <Bell margin="0 38px 0 0" />
-            <UserPlus />
+            <UserPlus
+              onClick={() => router.push(routesDocument.dashboardForm)}
+            />
           </Div>
-          <Div display="block" margin="0 16px 0 0">
+          <Div display="block" margin="0 16px 0 0" cursor="default">
             <DefaultText textAlign="right">Lucas Alves</DefaultText>
             <DefaultText
               textAlign="right"
               color="#9699B0"
               lineHeight="19px"
-              fontSize="14px"
+              fontSize="0.875rem"
             >
               lucas.alves.supus@outlook.com
             </DefaultText>
           </Div>
-          <Avatar   sx={{ width: 48, height: 48 }} src="/avatar.png" />
+          <Avatar sx={{ width: 48, height: 48 }} src="/avatar.png" />
         </Div>
       </ItemsDiv>
     </Base>

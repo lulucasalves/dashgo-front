@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Base = styled.div`
   max-width: ${(props) => (props.width ? props.width : '100%')};
   overflow: hidden;
-  
+  margin: ${(props) => (props.margin ? props.margin : '0 auto')};
 `;
 
 export const ItemsDiv = styled.div`

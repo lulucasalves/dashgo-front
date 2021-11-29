@@ -1,12 +1,15 @@
 import { Base, ItemsDiv, Div } from './styles';
 import { useRouter } from 'next/router';
-import { routesDocument } from '../../routes';
-import { Dash, Form, User, Map } from '../Icons';
-import { MenuText } from '../MenuText';
+import { routesDocument } from '../../../../routes';
+import { Dash, Form, User, Map, Exit } from '../../../Icons';
+import { MenuText } from '../../../MenuText';
+import { DefaultText } from '../../../DefaultText';
+import { useState } from 'react';
 
-export function LateralMenu(props) {
+export function LateralMenuResponsive(props) {
   const router = useRouter();
   const path = router.pathname;
+  const [active, setActive] = useState(false);
 
   function dashboardInitialRoute() {
     if (path == routesDocument.dashboardInitial) {
@@ -24,13 +27,17 @@ export function LateralMenu(props) {
     }
   }
 
-  function setActive() {
-    return true;
-  }
-
   return (
-    <Base>
+    <Base active={active}>
       <ItemsDiv>
+        <Exit
+          top="32px"
+          right="32px"
+          onClick={() => setActive(false)}
+        />
+        <DefaultText fontWeight="700" fontSize="1.25rem" margin="0 0 24px 0">
+          Navegação
+        </DefaultText>
         <MenuText
           cursor="default"
           margin="0 0 34px 0"

@@ -7,6 +7,7 @@ import { DefaultLabel } from '../DefaultLabel';
 import { FormInput } from '../FormInput';
 import { useRouter } from 'next/router';
 import { routesDocument } from '../../routes';
+import { UserFormResponsive } from './UserFormResponsive';
 
 export function UserForm(props) {
   const router = useRouter();
@@ -16,6 +17,8 @@ export function UserForm(props) {
   }
 
   return (
+    <>
+    <UserFormResponsive/>
     <Base>
       <ItemsDiv>
         <Div
@@ -156,5 +159,6 @@ export function UserForm(props) {
         </Div>
       </ItemsDiv>
     </Base>
+    </>
   );
 }

@@ -9,6 +9,7 @@ import { IconUserPlus } from './IconUserPlus';
 import { IconSearch } from './IconSearch';
 import { IconArrow } from './IconArrow';
 import { IconBars } from './IconBars';
+import { IconExit } from './IconExit';
 
 export const Bell = IconBell;
 export const Dash = IconDash;
@@ -21,3 +22,4 @@ export const UserPlus = IconUserPlus;
 export const Search = IconSearch;
 export const Arrow = IconArrow;
 export const Bars = IconBars;
+export const Exit = IconExit;

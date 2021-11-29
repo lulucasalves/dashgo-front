@@ -2,9 +2,8 @@ import { Base, ItemsDiv, Div } from './styles';
 import { DashboardTitle } from '../DashboardTitle';
 import { DefaultText } from '../DefaultText';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 import { InitContentResponsive } from './InitContentResponsive';
-
+import { Graphic } from '../Graphic';
 export function InitContent(props) {
   return (
     <>
@@ -25,7 +24,7 @@ export function InitContent(props) {
               background="#1F2029"
               borderRadius="8px"
               padding="32px"
-              width="424px"
+              width="100%"
               height="250px"
               margin="0 16px 0 0"
             >
@@ -36,9 +35,10 @@ export function InitContent(props) {
               >
                 Inscritos da semana
               </DefaultText>
+              <Graphic />
             </Div>
             <Div
-              width="424px"
+              width="100%"
               height="250px"
               display="block"
               background="#1F2029"
@@ -52,6 +52,7 @@ export function InitContent(props) {
               >
                 Taxa de abertura
               </DefaultText>
+              <Graphic />
             </Div>
           </Div>
         </ItemsDiv>

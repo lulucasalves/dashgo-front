@@ -1,4 +1,4 @@
-import { Base, ItemsDiv, Div } from './styles';
+import { Base, ItemsDiv, Div, Label } from './styles';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
 import { routesDocument } from '../../routes';
@@ -28,7 +28,7 @@ export function Menu(props) {
             }}
           >
             {({ handleChange, handleBlur, values, handleSubmit }) => (
-              <Div>
+              <Label>
                 <SearchInput
                   id="search"
                   name="search"
@@ -43,7 +43,7 @@ export function Menu(props) {
                   margin="0 0 0 -50px"
                   onClick={() => handleSubmit()}
                 />
-              </Div>
+              </Label>
             )}
           </Formik>
           <Div>

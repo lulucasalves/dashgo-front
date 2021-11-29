@@ -20,8 +20,4 @@ export const Base = styled.button`
   &:hover {
     filter: ${(props) => (props.errors ? '' : 'brightness(0.9)')};
   }
-
-  @media (max-width: 1230px) {
-    max-width: 310px;
-  }
 `;

@@ -17,19 +17,18 @@ export function LateralMenu(props) {
   }
 
   function dashboardUsersRoute() {
-    if (path == routesDocument.dashboardUsers) {
+    if (
+      path == routesDocument.dashboardUsers ||
+      path == routesDocument.dashboardForm
+    ) {
       return '#D53F8C';
     } else {
       return null;
     }
   }
 
-  function setActive() {
-    return true;
-  }
-
   return (
-    <Base>
+    <Base active={props.active}>
       <ItemsDiv>
         <MenuText
           cursor="default"

@@ -33,6 +33,8 @@ export function UserContent(props) {
     },
   ]);
 
+  //filter
+
   const [click, setClick] = useState(false);
 
   function orderByName(a, b) {
@@ -42,6 +44,8 @@ export function UserContent(props) {
       return b.name > a.name;
     }
   }
+
+  //pagination
 
   const usersPerPage = 5;
 
@@ -112,7 +116,6 @@ export function UserContent(props) {
             background="#1F2029"
             borderRadius="8px"
             padding="32px"
-            width="864px"
             height="572px"
           >
             <Div justifyContent="space-between" margin="0 0 35px 0">
@@ -136,7 +139,7 @@ export function UserContent(props) {
                     sx={{ '& .MuiSvgIcon-root': { fontSize: 24 } }}
                   />
                 </Td>
-                <Td width="365px">
+                <Td>
                   <DefaultText
                     fontSize="0.813rem"
                     color="#4B4D63"
@@ -149,7 +152,7 @@ export function UserContent(props) {
                     USUÁRIO <Arrow active={click} margin="-2px 0 0 12px" />
                   </DefaultText>
                 </Td>
-                <Td width="365px">
+                <Td>
                   <DefaultText
                     fontSize="0.813rem"
                     color="#4B4D63"
@@ -175,7 +178,7 @@ export function UserContent(props) {
                         sx={{ '& .MuiSvgIcon-root': { fontSize: 24 } }}
                       />
                     </Td>
-                    <Td width="365px">
+                    <Td>
                       <Div display="block">
                         <DefaultText
                           color="#9F7AEA"
@@ -194,7 +197,7 @@ export function UserContent(props) {
                         </DefaultText>
                       </Div>
                     </Td>
-                    <Td width="365px">
+                    <Td>
                       <DefaultText>{val.date}</DefaultText>
                     </Td>
                   </Tr>
@@ -203,7 +206,8 @@ export function UserContent(props) {
             </tbody>
             <Div margin="22px 0 0 0" justifyContent="space-between">
               <DefaultText>
-                <span>{`${start} - ${end}`}</span> de <span>{user.length}</span>
+                <span>{start}</span> - <span>{end}</span> de{' '}
+                <span>{user.length}</span>
               </DefaultText>
               <Div display="flex">
                 {prevPage()}

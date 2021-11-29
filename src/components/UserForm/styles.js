@@ -21,10 +21,11 @@ export const ItemsDiv = styled.div`
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : 'center'};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
+  width: ${(props) => (props.width ? props.width : '100%')};
 `;
 
 export const Div = styled.div`
-  max-width: ${(props) => (props.width ? props.width : '100%')};
+  width: ${(props) => (props.width ? props.width : '100%')};
   display: ${(props) => (props.display ? props.display : 'flex')};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   margin: ${(props) => (props.margin ? props.margin : '0')};

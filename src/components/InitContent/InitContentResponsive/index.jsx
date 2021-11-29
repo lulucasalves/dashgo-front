@@ -1,6 +1,6 @@
 import { Base, ItemsDiv, Div } from './styles';
 import { DefaultText } from '../../DefaultText';
-import dynamic from 'next/dynamic';
+import { Graphic } from '../../Graphic';
 
 export function InitContentResponsive(props) {
   return (
@@ -22,6 +22,7 @@ export function InitContentResponsive(props) {
             >
               Inscritos da semana
             </DefaultText>
+            <Graphic />
           </Div>
           <Div
             width="100%"
@@ -37,6 +38,7 @@ export function InitContentResponsive(props) {
             >
               Taxa de abertura
             </DefaultText>
+            <Graphic />
           </Div>
         </Div>
       </ItemsDiv>

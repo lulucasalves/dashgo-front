@@ -37,7 +37,7 @@ export const Div = styled.div`
 `;
 
 export const Td = styled.td`
-  width: ${(props) => (props.width ? props.width : '260px')};
+  width: ${(props) => (props.width ? props.width : '540px')};
   display: ${(props) => (props.display ? props.display : 'flex')};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   margin: ${(props) => (props.margin ? props.margin : '0')};
@@ -47,7 +47,10 @@ export const Td = styled.td`
   background: ${(props) => (props.background ? props.background : '')};
   border-radius: ${(props) => (props.borderRadius ? props.borderRadius : '')};
   height: ${(props) => (props.height ? props.height : '')};
-  width: ${(props) => (props.width ? props.width : '')};
+
+  @media (max-width: 1852px) {
+    width: ${(props) => (props.width ? props.width : '390px')};
+  }
 `;
 
 export const Tr = styled.tr`

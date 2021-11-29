@@ -22,7 +22,6 @@ export function UserFormResponsive(props) {
           background="#1F2029"
           borderRadius="8px"
           padding="24px"
-          width="864px"
           height="575px"
         >
           <Div
@@ -30,7 +29,7 @@ export function UserFormResponsive(props) {
             margin="0 0 24px 0"
             border="1px solid #353646"
           >
-            <DashboardTitle>Usuários</DashboardTitle>
+            <DashboardTitle>Novo usuário</DashboardTitle>
           </Div>
 
           <Formik
@@ -57,7 +56,6 @@ export function UserFormResponsive(props) {
                 <Div margin="0 0 24px 0">
                   <DefaultLabel htmlFor="name">Nome completo</DefaultLabel>
                   <FormInput
-                    width="287px"
                     margin="8px 0 0 0"
                     required
                     id="name"
@@ -73,7 +71,6 @@ export function UserFormResponsive(props) {
                 <Div margin="0 0 24px 0">
                   <DefaultLabel htmlFor="email">E-mail</DefaultLabel>
                   <FormInput
-                    width="287px"
                     margin="8px 0 0 0"
                     required
                     id="email"
@@ -91,7 +88,6 @@ export function UserFormResponsive(props) {
                   <DefaultLabel htmlFor="password">Senha</DefaultLabel>
 
                   <FormInput
-                    width="287px"
                     margin="8px 0 0 0"
                     required
                     id="password"
@@ -111,7 +107,6 @@ export function UserFormResponsive(props) {
                     Confirmação da senha
                   </DefaultLabel>
                   <FormInput
-                    width="287px"
                     margin="8px 0 0 0"
                     required
                     id="confirmPassword"

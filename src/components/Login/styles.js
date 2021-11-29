@@ -7,7 +7,7 @@ export const Base = styled.div`
   justify-content: ${(props) =>
     props.justifyContent ? props.justifyContent : 'center'};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
-  margin: ${(props) => (props.margin ? props.margin : '0 auto')};
+  margin: ${(props) => (props.margin ? props.margin : '0')};
   position: ${(props) => (props.position ? props.position : 'absolute')};
   display: flex;
 `;
@@ -15,7 +15,7 @@ export const Base = styled.div`
 export const ItemsDiv = styled.div`
   display: ${(props) => (props.display ? props.display : 'block')};
   margin: ${(props) => (props.margin ? props.margin : '0 auto')};
-  padding: ${(props) => (props.padding ? props.padding : '32px')};
+  padding: ${(props) => (props.padding ? props.padding : '24px')};
   border-radius: ${(props) =>
     props.borderRadius ? props.borderRadius : '8px'};
   background: ${(props) => (props.background ? props.background : '#1F2029')};
@@ -23,6 +23,10 @@ export const ItemsDiv = styled.div`
     props.justifyContent ? props.justifyContent : 'center'};
   align-items: ${(props) => (props.alignItems ? props.alignItems : 'center')};
   text-align: center;
+
+  @media (max-width: 1080px) {
+    padding: 16px;
+  }
 `;
 
 export const Div = styled.div`

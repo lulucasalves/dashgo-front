@@ -186,7 +186,8 @@ export function UserContentResponsive(props) {
           </Div>
           <Div display="block">
             <DefaultText margin="16px 0 16px 0" textAlign="center">
-              <span>{`${start} - ${end}`}</span> de <span>{user.length}</span>
+              <span>{start}</span> - <span>{end}</span> de{' '}
+              <span>{user.length}</span>
             </DefaultText>
             <Div display="flex" justifyContent="center">
               {prevPage()}

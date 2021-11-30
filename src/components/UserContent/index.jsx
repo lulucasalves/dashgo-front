@@ -2,34 +2,52 @@ import { Base, ItemsDiv, Div, Td, Tr } from './styles';
 import { DashboardTitle } from '../DashboardTitle';
 import { DefaultText } from '../DefaultText';
 import { DefaultButton } from '../DefaultButton';
-import { Plus, Arrow, Map } from '../Icons';
+import { Plus, Arrow } from '../Icons';
 import { Checkbox } from '@mui/material';
 import { useRouter } from 'next/router';
 import { routesDocument } from '../../routes';
 import { useEffect, useState } from 'react';
 import { UserContentResponsive } from './UserContentResponsive';
+import { useQuery } from 'react-query';
+import { CircularProgress } from '@material-ui/core';
 
-export function UserContent(props) {
+export function UserContent() {
+  const { data, isLoading, error } = useQuery(
+    'users',
+    async () => {
+      const response = await fetch('http://localhost:3000/api/users');
+      const data = response.json();
+
+      const users = data.users.map((user) => {
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+          }),
+        };
+      });
+
+      return users;
+    },
+    {
+      staleTime: 1000 * 5,
+    },
+  );
+
+  console.log(data);
+
   const router = useRouter();
 
   const [user, setUser] = useState([
     {
-      id: 3,
-      name: 'User 3',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
       id: 1,
-      name: 'User 1',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
-      id: 2,
-      name: 'User 2',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
+      name: 'José',
+      email: 'sjsjdkdk',
+      createdat: 'fsdfsdf23',
     },
   ]);
 
@@ -167,42 +185,54 @@ export function UserContent(props) {
               </Tr>
             </thead>
             <tbody>
-              {pageUsers.users.sort(orderByName).map((val) => {
-                return (
-                  <Tr key={val.id} padding="13px 0" display="flex">
-                    <Td width="70px" textAlign="center">
-                      <Checkbox
-                        color="secondary"
-                        backgroundColor="primary"
-                        border="1px solid #fff"
-                        sx={{ '& .MuiSvgIcon-root': { fontSize: 24 } }}
-                      />
-                    </Td>
-                    <Td>
-                      <Div display="block">
-                        <DefaultText
-                          color="#9F7AEA"
-                          fontWeight="700"
-                          lineHeight="20px"
-                        >
-                          {val.name}
-                        </DefaultText>
-                        <DefaultText
-                          fontSize="0.875rem"
-                          color="#9699B0"
-                          fontWeight="400"
-                          lineHeight="20px"
-                        >
-                          {val.email}
-                        </DefaultText>
-                      </Div>
-                    </Td>
-                    <Td>
-                      <DefaultText>{val.date}</DefaultText>
-                    </Td>
-                  </Tr>
-                );
-              })}
+              {isLoading ? (
+                <Div justifyContent="center" margin="36px 0 0 0">
+                  <CircularProgress />
+                </Div>
+              ) : error ? (
+                <Div>
+                  <DefaultText>
+                    Não fui possivel obter os usuários...
+                  </DefaultText>
+                </Div>
+              ) : (
+                pageUsers.users.sort(orderByName).map((val) => {
+                  return (
+                    <Tr key={val.id} padding="13px 0" display="flex">
+                      <Td width="70px" textAlign="center">
+                        <Checkbox
+                          color="secondary"
+                          backgroundColor="primary"
+                          border="1px solid #fff"
+                          sx={{ '& .MuiSvgIcon-root': { fontSize: 24 } }}
+                        />
+                      </Td>
+                      <Td>
+                        <Div display="block">
+                          <DefaultText
+                            color="#9F7AEA"
+                            fontWeight="700"
+                            lineHeight="20px"
+                          >
+                            {val.name}
+                          </DefaultText>
+                          <DefaultText
+                            fontSize="0.875rem"
+                            color="#9699B0"
+                            fontWeight="400"
+                            lineHeight="20px"
+                          >
+                            {val.email}
+                          </DefaultText>
+                        </Div>
+                      </Td>
+                      <Td>
+                        <DefaultText>{val.createdat}</DefaultText>
+                      </Td>
+                    </Tr>
+                  );
+                })
+              )}
             </tbody>
             <Div margin="22px 0 0 0" justifyContent="space-between">
               <DefaultText>

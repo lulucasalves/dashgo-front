@@ -52,7 +52,6 @@ export function Login(props) {
                 <DefaultLabel htmlFor="email">E-mail</DefaultLabel>
                 <br />
                 <FormInput
-                  margin="8px 0 0 0"
                   required
                   id="email"
                   name="email"
@@ -70,7 +69,6 @@ export function Login(props) {
                 <br />
                 <Div display="flex">
                   <FormInput
-                    margin="8px 0 0 0"
                     required
                     id="password"
                     type={transform()}

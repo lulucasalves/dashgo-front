@@ -8,48 +8,28 @@ import { useRouter } from 'next/router';
 import { routesDocument } from '../../routes';
 import { useEffect, useState } from 'react';
 import { UserContentResponsive } from './UserContentResponsive';
-import { useQuery } from 'react-query';
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress, Link } from '@material-ui/core';
+import { useUsers } from '../../server/hooks/users';
+import { queryClient } from '../../server/queryClient';
 
 export function UserContent() {
-  const { data, isLoading, error } = useQuery(
-    'users',
-    async () => {
-      const response = await fetch('http://localhost:3000/api/users');
-      const data = response.json();
-
-      const users = data.users.map((user) => {
-        return {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric',
-          }),
-        };
-      });
-
-      return users;
-    },
-    {
-      staleTime: 1000 * 5,
-    },
-  );
-
+  const { data, isLoading, isFetching, error } = useUsers();
   console.log(data);
 
   const router = useRouter();
 
-  const [user, setUser] = useState([
-    {
-      id: 1,
-      name: 'José',
-      email: 'sjsjdkdk',
-      createdat: 'fsdfsdf23',
-    },
-  ]);
+  const [user, setUser] = useState(
+    isLoading
+      ? [
+          {
+            id: 1,
+            name: 'Lucas',
+            email: 'ddiiww',
+            createdAt: '21 de março de 2021',
+          },
+        ]
+      : data,
+  );
 
   //filter
 
@@ -57,9 +37,9 @@ export function UserContent() {
 
   function orderByName(a, b) {
     if (click) {
-      return b.name < a.name;
+      return a > b;
     } else {
-      return b.name > a.name;
+      return a < b;
     }
   }
 
@@ -123,6 +103,18 @@ export function UserContent() {
   const page = pageUsers.page - 1;
   const start = page * usersPerPage;
   const end = start + usersPerPage;
+
+  async function handlePrefetch(userId) {
+    await queryClient.prefetchQuery(
+      ['user', userId],
+      async () => {
+        const response = await api.get(`/users/${userId}`);
+
+        return response.data;
+      },
+      { staleTime: 1000 * 60 * 10 },
+    );
+  }
 
   return (
     <>
@@ -209,13 +201,15 @@ export function UserContent() {
                       </Td>
                       <Td>
                         <Div display="block">
-                          <DefaultText
-                            color="#9F7AEA"
-                            fontWeight="700"
-                            lineHeight="20px"
-                          >
-                            {val.name}
-                          </DefaultText>
+                          <Link onMouseEnter={() => handlePrefetch(val.id)}>
+                            <DefaultText
+                              color="#9F7AEA"
+                              fontWeight="700"
+                              lineHeight="20px"
+                            >
+                              {val.name}
+                            </DefaultText>
+                          </Link>
                           <DefaultText
                             fontSize="0.875rem"
                             color="#9699B0"

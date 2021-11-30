@@ -8,13 +8,42 @@ import { FormInput } from '../FormInput';
 import { useRouter } from 'next/router';
 import { routesDocument } from '../../routes';
 import { UserFormResponsive } from './UserFormResponsive';
+import { useMutation } from 'react-query';
+import { api } from '../../server/api';
+import { queryClient } from '../../server/queryClient';
 
 export function UserForm(props) {
   const router = useRouter();
 
-  function save(name, email, password, confirmPassword) {
-    router.push(routesDocument.dashboardUsers);
-  }
+  const createUser = useMutation(
+    async (user) => {
+      const response = await api
+        .post('users', {
+          user: {
+            ...user,
+            created_at: new Date(),
+          },
+        })
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log('Error', error.message);
+          }
+          console.log(error.config);
+        });
+      return response.data.user;
+    },
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('users');
+      },
+    },
+  );
 
   return (
     <>
@@ -44,8 +73,9 @@ export function UserForm(props) {
                 confirmPassword: '',
               }}
               validationSchema={registerSchema}
-              onSubmit={(values) => {
-                save(values);
+              onSubmit={async (values) => {
+                await createUser.mutateAsync(values);
+                router.push(routesDocument.dashboardUsers);
               }}
             >
               {({

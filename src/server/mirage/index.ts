@@ -7,7 +7,7 @@ type User = {
   created_at: string;
 };
 
-export function mirageServer() {
+export function makeServer() {
   const server = createServer({
     serializers: {
       application: ActiveModelSerializer,
@@ -42,7 +42,7 @@ export function mirageServer() {
       this.timing = 750;
 
       this.get('/users');
-      this.post('./users');
+      this.post('/users');
 
       this.namespace = '';
       this.passthrough();

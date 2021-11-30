@@ -1,9 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 import '../styles/globals.css';
 import { createTheme, ThemeProvider } from '@material-ui/core/styles';
-import { mirageServer } from '../server/mirage';
+import { makeServer } from '../server/mirage';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { queryClient } from '../server/queryClient'
 
 const theme = createTheme({
   palette: {
@@ -36,10 +37,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 if (process.env.NODE_ENV == 'development') {
-  mirageServer();
+  makeServer();
 }
-
-const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
   return (

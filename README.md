@@ -8,7 +8,7 @@
 
 <table>
   <tr>
-    <td valign="top"><img src="https://github.com/lulucasalves/dashgo-project/blob/main/.github/Imagem5.png"/></td>
+    <td valign="top"><img src="https://github.com/lulucasalves/dashgo-project/blob/main/.github/Imagem9.png"/></td>
     <td valign="top"><img src="https://github.com/lulucasalves/dashgo-project/blob/main/.github/Imagem6.png"/></td>
   </tr>
 </table>

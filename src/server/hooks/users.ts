@@ -24,7 +24,7 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
       id: user.id,
       name: user.name,
       email: user.email,
-      createdAt: new Date(),
+      createdAt: '2 de Dezembro de 2021',
     };
   });
 

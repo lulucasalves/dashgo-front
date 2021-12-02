@@ -2,43 +2,40 @@ import { Base, ItemsDiv, Div, Td, Tr } from './styles';
 import { DashboardTitle } from '../../DashboardTitle';
 import { DefaultText } from '../../DefaultText';
 import { DefaultButton } from '../../DefaultButton';
-import { Plus, Arrow, Map } from '../../Icons';
+import { Plus, Arrow } from '../../Icons';
 import { Checkbox } from '@mui/material';
 import { useRouter } from 'next/router';
 import { routesDocument } from '../../../routes';
 import { useEffect, useState } from 'react';
+import { CircularProgress, Link } from '@material-ui/core';
+import { useUsers } from '../../../server/hooks/users';
 
-export function UserContentResponsive(props) {
+export function UserContentResponsive() {
+  const { data, isLoading, isFetching, error } = useUsers();
+
   const router = useRouter();
 
-  const [user, setUser] = useState([
-    {
-      id: 3,
-      name: 'User 3',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
-      id: 1,
-      name: 'User 1',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-    {
-      id: 2,
-      name: 'User 2',
-      email: 'josenazare@gmail.com',
-      date: '19 de março de 2021',
-    },
-  ]);
+  const [user, setUser] = useState(
+    isLoading
+      ? [
+          {
+            id: 1,
+            name: 'Lucas',
+            email: 'ddiiww',
+          },
+        ]
+      : data,
+  );
+
+  //filter
 
   const [click, setClick] = useState(false);
 
   function orderByName(a, b) {
     if (click) {
-      return b.name < a.name;
+      return a > b;
     } else {
-      return b.name > a.name;
+      return a < b;
     }
   }
 
@@ -107,7 +104,7 @@ export function UserContentResponsive(props) {
           background="#1F2029"
           borderRadius="8px"
           padding="24px"
-          height="586px"
+          height="596px"
         >
           <Div justifyContent="space-between" margin="0 0 35px 0">
             <DashboardTitle>Usuários</DashboardTitle>
@@ -145,45 +142,51 @@ export function UserContentResponsive(props) {
               </Div>
             </Div>
           </Div>
-          <Div display="block">
-            {pageUsers.users.sort(orderByName).map((val) => {
-              return (
-                <Div
-                  key={val.id}
-                  padding="13px 0"
-                  border="1px solid rgba(255, 255, 255, 0.06)"
-                >
-                  <Div textAlign="center" margin="0 24px 0 0">
-                    <Checkbox
-                      color="secondary"
-                      backgroundColor="primary"
-                      border="1px solid #fff"
-                      sx={{ '& .MuiSvgIcon-root': { fontSize: 24 } }}
-                    />
-                  </Div>
-                  <Div>
-                    <Div display="block">
-                      <DefaultText
-                        color="#9F7AEA"
-                        fontWeight="700"
-                        lineHeight="20px"
-                      >
-                        {val.name}
-                      </DefaultText>
-                      <DefaultText
-                        fontSize="0.875rem"
-                        color="#9699B0"
-                        fontWeight="400"
-                        lineHeight="20px"
-                      >
-                        {val.email}
-                      </DefaultText>
+          {isLoading ? (
+            <Div justifyContent="center" margin="36px 0 0 0">
+              <CircularProgress />
+            </Div>
+          ) : error ? null : (
+            <Div display="block">
+              {pageUsers.users.sort(orderByName).map((val) => {
+                return (
+                  <Div
+                    key={val.id}
+                    padding="13px 0"
+                    border="1px solid rgba(255, 255, 255, 0.06)"
+                  >
+                    <Div textAlign="center" margin="0 24px 0 0">
+                      <Checkbox
+                        color="secondary"
+                        backgroundColor="primary"
+                        border="1px solid #fff"
+                        sx={{ '& .MuiSvgIcon-root': { fontSize: 24 } }}
+                      />
+                    </Div>
+                    <Div>
+                      <Div display="block">
+                        <DefaultText
+                          color="#9F7AEA"
+                          fontWeight="700"
+                          lineHeight="20px"
+                        >
+                          {val.name}
+                        </DefaultText>
+                        <DefaultText
+                          fontSize="0.875rem"
+                          color="#9699B0"
+                          fontWeight="400"
+                          lineHeight="20px"
+                        >
+                          {val.email}
+                        </DefaultText>
+                      </Div>
                     </Div>
                   </Div>
-                </Div>
-              );
-            })}
-          </Div>
+                );
+              })}
+            </Div>
+          )}
           <Div display="block">
             <DefaultText margin="16px 0 16px 0" textAlign="center">
               <span>{start}</span> - <span>{end}</span> de{' '}

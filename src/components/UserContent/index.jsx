@@ -14,7 +14,6 @@ import { queryClient } from '../../server/queryClient';
 
 export function UserContent() {
   const { data, isLoading, isFetching, error } = useUsers();
-  console.log(data);
 
   const router = useRouter();
 
@@ -210,6 +209,7 @@ export function UserContent() {
                               {val.name}
                             </DefaultText>
                           </Link>
+
                           <DefaultText
                             fontSize="0.875rem"
                             color="#9699B0"
@@ -221,7 +221,7 @@ export function UserContent() {
                         </Div>
                       </Td>
                       <Td>
-                        <DefaultText>{val.createdat}</DefaultText>
+                        <DefaultText>{val.createdAt}</DefaultText>
                       </Td>
                     </Tr>
                   );

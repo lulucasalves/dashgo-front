@@ -80,7 +80,7 @@ export function Login(props) {
                     errors={errors.password && touched.password}
                   />
                   <Eye
-                    margin="0 0 -10px -40px"
+                    margin="0 0 -3px -40px"
                     onClick={() => setType(!type)}
                   />
                 </Div>

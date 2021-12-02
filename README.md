@@ -31,4 +31,6 @@
 <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <a href="https://github.com/jquense/yupp">Yup</a></li>
 <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <a href="https://formik.org/" rel="nofollow">Formik</a></li>
 <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <a href="https://fontawesome.com/" rel="nofollow">Font Awesome</a></li>
+  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <a href="https://miragejs.com/" rel="nofollow">Mirage</a></li>
+  <li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""> <a href="https://react-query.tanstack.com/" rel="nofollow">React Query</a></li>
 </ul>

@@ -17,18 +17,13 @@ export function UserContent() {
 
   const router = useRouter();
 
-  const [user, setUser] = useState(
-    isLoading
-      ? [
-          {
-            id: 1,
-            name: 'Lucas',
-            email: 'ddiiww',
-            createdAt: '21 de março de 2021',
-          },
-        ]
-      : data,
-  );
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    if (data) {
+      setUser(data);
+    }
+  }, [data]);
 
   //filter
 
@@ -59,7 +54,7 @@ export function UserContent() {
 
     const paginatedUsers = user.slice(start, end);
     setPageUsers({ ...pageUsers, users: paginatedUsers });
-  }, [pageUsers.page]);
+  }, [pageUsers.page, data]);
 
   const prevPage = () => {
     if (pageUsers.page > 1) {

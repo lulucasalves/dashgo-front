@@ -15,17 +15,13 @@ export function UserContentResponsive() {
 
   const router = useRouter();
 
-  const [user, setUser] = useState(
-    isLoading
-      ? [
-          {
-            id: 1,
-            name: 'Lucas',
-            email: 'ddiiww',
-          },
-        ]
-      : data,
-  );
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    if (data) {
+      setUser(data);
+    }
+  }, [data]);
 
   //filter
 
@@ -54,7 +50,7 @@ export function UserContentResponsive() {
 
     const paginatedUsers = user.slice(start, end);
     setPageUsers({ ...pageUsers, users: paginatedUsers });
-  }, [pageUsers.page]);
+  }, [pageUsers.page, data]);
 
   const prevPage = () => {
     if (pageUsers.page > 1) {

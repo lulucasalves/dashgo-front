@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import { makeServer } from '../server/mirage';
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { queryClient } from '../server/queryClient'
+import { queryClient } from '../server/queryClient';
 
 const theme = createTheme({
   palette: {

@@ -52,6 +52,7 @@ export function Login(props) {
                 <DefaultLabel htmlFor="email">E-mail</DefaultLabel>
                 <br />
                 <FormInput
+                  placeholder="Insira seu email"
                   required
                   id="email"
                   name="email"
@@ -69,6 +70,7 @@ export function Login(props) {
                 <br />
                 <Div display="flex">
                   <FormInput
+                    placeholder="Insira sua senha"
                     required
                     id="password"
                     type={transform()}
@@ -79,10 +81,7 @@ export function Login(props) {
                     value={values.password}
                     errors={errors.password && touched.password}
                   />
-                  <Eye
-                    margin="0 0 -3px -40px"
-                    onClick={() => setType(!type)}
-                  />
+                  <Eye margin="0 0 -3px -40px" onClick={() => setType(!type)} />
                 </Div>
                 {errors.password && touched.password}
               </Div>

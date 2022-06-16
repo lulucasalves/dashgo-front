@@ -6,9 +6,11 @@ import { Avatar } from '@mui/material';
 import { useState } from 'react';
 import { DefaultText } from '../../DefaultText';
 import { LateralMenu } from '../../LateralMenu';
+import { useRouter } from 'next/router';
 
 export function MenuResponsive(props) {
   const [active, setActive] = useState(false);
+  const router = useRouter();
 
   function LateralMenuResponsive() {
     return (
